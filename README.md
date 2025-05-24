@@ -22,8 +22,130 @@ This dashboard is designed to update in real-time using streaming data from a si
 📈 Summary:
 Provides real-time insights that are crucial for businesses needing up-to-the-minute analytics, enhancing rapid response and operational efficiency.
 
-🔗 Live Preview / Report File:
-Power BI file (.pbix) included; streaming dataset simulated using Power BI push dataset.
+📌 STEP-BY-STEP PROCESS:
+🔹 Step 1: Set Up Your Environment
+Make sure you have the following:
+
+✅ A Microsoft Power BI account (Pro or higher recommended)
+
+✅ Access to Power BI Service: https://app.powerbi.com
+
+✅ Azure account (if you're using Azure Event Hub / IoT Hub)
+
+✅ Python or Node.js environment (for simulating real-time data)
+
+✅ Postman (for manual API testing if needed)
+
+🔹 Step 2: Create a Streaming Dataset in Power BI
+Go to Power BI Service (not Power BI Desktop).
+
+Click on Workspace > Choose your workspace.
+
+Click “+ New” > Streaming dataset.
+
+Select API as the source and click Next.
+
+Define dataset schema, e.g.:
+
+json
+Copy
+Edit
+{
+  "timestamp": "DateTime",
+  "temperature": "Number",
+  "humidity": "Number",
+  "location": "Text"
+}
+Turn “Historic data analysis” to ON (if you want to use report visuals).
+
+Click Create and note the Push URL provided.
+
+🔹 Step 3: Send Streaming Data to Power BI
+You have 2 options:
+
+Option A: Use Azure Stream Analytics
+Set up an Azure Stream Analytics job.
+
+Input: Azure Event Hub / IoT Hub / Blob
+
+Output: Power BI
+
+Authenticate Power BI when configuring output.
+
+Map fields from Stream Analytics to Power BI dataset.
+
+Option B: Simulate Data using Python (Example)
+python
+Copy
+Edit
+import requests
+import json
+import time
+import random
+from datetime import datetime
+
+url = 'https://api.powerbi.com/beta/YOUR_WORKSPACE_ID/datasets/YOUR_DATASET_ID/rows?key=YOUR_API_KEY'
+
+while True:
+    data = [{
+        "timestamp": datetime.utcnow().isoformat(),
+        "temperature": round(random.uniform(20.0, 30.0), 2),
+        "humidity": round(random.uniform(40.0, 60.0), 2),
+        "location": "Lab1"
+    }]
+    
+    response = requests.post(url, headers={'Content-Type': 'application/json'}, data=json.dumps(data))
+    print(response.status_code, response.text)
+    time.sleep(2)
+Make sure to replace the url with the one Power BI gave you.
+
+🔹 Step 4: Build a Live Dashboard in Power BI
+Go back to your workspace in Power BI Service.
+
+Click + New Dashboard.
+
+Use the “Add a tile” option.
+
+Choose Custom streaming data as source.
+
+Select the dataset you created earlier.
+
+Pick visual types (line chart, card, gauge, etc.).
+
+Configure fields (e.g., temperature as Y-axis, timestamp as X-axis).
+
+Your dashboard will start updating live as data comes in from your API or stream.
+
+🔹 Step 5: Customize and Format Your Dashboard
+Add filters or slicers if you enabled historic analysis.
+
+Use time-based visuals like:
+
+Line charts for trends
+
+Cards for current value
+
+Gauges for threshold alerts
+
+Title and format your visuals to make the dashboard user-friendly.
+
+🔹 Step 6: Share or Export the Dashboard
+Share with others using Power BI workspace access.
+
+Pin the dashboard to a Power BI App for external visibility.
+
+Take screenshots or screen recordings for your internship submission.
+
+✅ COMPLETION CHECKLIST FOR YOUR INTERNSHIP:
+ Power BI Streaming Dataset Created
+
+ Real-Time Data Feed Working (via API or Azure)
+
+ Dashboard Live and Updating in Real-Time
+
+ Dashboard Contains Multiple Visuals (Card, Line Chart, etc.)
+
+ Documented or Demonstrated Dashboard for Certificate
 
 🛠️ Tools & Technologies Used:
 Power BI
