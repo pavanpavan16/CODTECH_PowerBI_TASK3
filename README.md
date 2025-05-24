@@ -20,7 +20,11 @@ Real-Time Sales and Activity Dashboard
 This dashboard is designed to update in real-time using streaming data from a simulated API feed. It displays metrics such as live order tracking, product inventory status, and user activity, updating every few seconds.
 
 📈 Summary:
-Provides real-time insights that are crucial for businesses needing up-to-the-minute analytics, enhancing rapid response and operational efficiency.
+Real-time monitoring of Temperature and Humidity from Lab1 using a streaming dataset. Updates live on dashboard visuals.
+
+## Why Used: To showcase real-time IoT data ingestion and visualization using Power BI Streaming Dataset.
+## Visuals Used: Card KPIs, Line Chart, Gauge, Bar Chart.
+## Key Insights: Live environmental metrics for quick monitoring and anomaly detection.
 
 📌 STEP-BY-STEP PROCESS:
 🔹 Step 1: Set Up Your Environment
