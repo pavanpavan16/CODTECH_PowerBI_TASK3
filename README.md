@@ -129,23 +129,9 @@ Gauges for threshold alerts
 
 Title and format your visuals to make the dashboard user-friendly.
 
-🔹 Step 6: Share or Export the Dashboard
-Share with others using Power BI workspace access.
-
-Pin the dashboard to a Power BI App for external visibility.
-
-Take screenshots or screen recordings for your internship submission.
-
-✅ COMPLETION CHECKLIST FOR YOUR INTERNSHIP:
- Power BI Streaming Dataset Created
-
- Real-Time Data Feed Working (via API or Azure)
-
- Dashboard Live and Updating in Real-Time
-
- Dashboard Contains Multiple Visuals (Card, Line Chart, etc.)
-
- Documented or Demonstrated Dashboard for Certificate
+In Power BI Service, if your report is connected to streaming data (such as via a Streaming Dataset or Push Dataset), downloading a PBIX file is typically not supported. This limitation exists because:
+Streaming datasets do not store historical data.
+Power BI does not retain the report definition in a format that can be exported as a PBIX when using certain types of streaming data sources.
 
 🛠️ Tools & Technologies Used:
 Power BI
